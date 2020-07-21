@@ -1,8 +1,16 @@
+import argparse
 from gensim.models import Word2Vec
 
-test_data_path = 'test_data.txt'
-model_path = 'word2vec.model'
-result_path = 'result.txt'
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--test_data_path', '-t', default='test_data.txt') # required=True
+parser.add_argument('--model_path', '-m', default='word2vec.model')
+parser.add_argument('--result_path', '-r', default='result.txt')
+args = parser.parse_args()
+
+test_data_path = args.test_data_path
+model_path = args.model_path
+result_path = args.result_path
 
 # test
 model = Word2Vec.load(model_path)
